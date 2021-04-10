@@ -3,7 +3,6 @@ import { Links } from "../components/Links";
 import classes from "./Main.module.css";
 
 export function Main(props) {
-  console.log(props);
   return (
     <main className={classes.main}>
       <Headline page={props.page}>
