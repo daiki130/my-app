@@ -3,7 +3,7 @@ import { Main } from "src/components/Main";
 import { Header } from "src/components/Header";
 import { Footer } from "src/components/Footer";
 import styles from "src/styles/Home.module.css";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 
 export default function Home() {
   const foo = 1;
@@ -12,6 +12,15 @@ export default function Home() {
     console.log(e.target.href);
     e.preventDefault();
     alert(foo);
+  }, []);
+
+  useEffect(() => {
+    console.log("マウント時");
+    document.body.style.backgroundColor = "lightblue";
+    return () => {
+      document.body.style.backgroundColor = "";
+      console.log("アンマウント時");
+    };
   }, []);
 
   return (
